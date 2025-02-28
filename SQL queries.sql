@@ -1,6 +1,5 @@
-# Queries in MySQL
+--# Queries in MySQL
 
-```sql
 -- 1. View the menu_items table.
 SELECT * FROM menu_items;
 
