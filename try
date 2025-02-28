@@ -1,0 +1,20 @@
+# Queries in MySQL
+
+### Basic Queries
+```sql
+-- 1. View the menu_items table.
+SELECT * FROM menu_items;
+
+-- 2. Find the number of items on the menu.
+SELECT COUNT(*)
+FROM menu_items;
+```
+
+### Advanced Queries
+```sql
+-- 3. Most/Least Expensive Items
+SELECT *
+FROM menu_items
+WHERE price = (SELECT MAX(price) FROM menu_items) 
+   OR price = (SELECT MIN(price) FROM menu_items);
+```
