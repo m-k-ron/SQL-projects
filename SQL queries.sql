@@ -116,3 +116,41 @@ LEFT JOIN menu_items mi
 ON od.item_id = mi.menu_item_id
 WHERE order_id IN ('440', '2075', '1956', '330', '2675')
 GROUP BY order_id, category;
+
+/* extra */
+
+-- 6. What is the average spend per order?
+SELECT order_id, AVG(price) AS average_spend
+FROM order_details od
+LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY order_id;
+
+-- 7. What is the average spend per item?
+SELECT item_id, item_name, AVG(price) AS average_spend
+FROM order_details od
+LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY item_id, item_name;
+
+-- 8. What is the average spend per category?
+SELECT category, AVG(price) AS average_spend
+FROM order_details od
+LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY category;
+
+-- 9. What is the average spend per category per order?
+SELECT category, order_id, AVG(price) AS average_spend
+FROM order_details od
+LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY category, order_id;
+
+-- 10. What is the average spend per category per item?
+SELECT category, item_id, AVG(price) AS average_spend
+FROM order_details od
+LEFT JOIN menu_items mi
+ON od.item_id = mi.menu_item_id
+GROUP BY category, item_id;
+
